@@ -11,3 +11,81 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+*{
+  margin: 10px;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 1px solid black;
+  
+}
+
+.nav-items> ul{
+  display: flex;
+  list-style-type: none;
+
+}
+.nav-items >ul>li{
+padding:10px
+}
+
+.logo{
+  width: 100px;
+padding: 2px;
+}
+
+.card>img{
+  width: 200px;
+  margin: 10px;
+  padding:5px;
+
+}
+.card>h1{
+  margin:2px;
+  padding: 2px;
+
+}
+.card{
+border: 1px solid gray;
+width: 290px;
+margin:2px;
+
+}
+
+.restaurantLIst{
+  display: flex;
+  flex-wrap: wrap;
+  gap:10px;
+}
+
+.shimmer-cards{
+border: 1px solid gray;
+width: 290px;
+height: 290px;
+margin:2px;
+background-image: linear-gradient(rgb(232, 226, 226), rgb(133, 133, 131));
+animation-name: shimmer-animation; 
+animation-duration: 10s;
+animation-iteration-count: infinite; 
+animation-timing-function: linear; 
+background-size: 290px 100%;
+}
+
+.shimmer-main-card{
+  display: flex;
+  flex-wrap: wrap;
+  gap:10px;
+}
+
+@keyframes shimmer-animation {
+  from {
+      background-position: -290px 0; /* Initial position off-screen */
+  }
+  to {
+      background-position: 290px 0; /* Move the background completely across */
+  }
+}
