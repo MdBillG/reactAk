@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import RestaurantCard from "./RestaurantCard"
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
+import { FETCH_RESTAURANTS } from './constants';
 
 function filterData (searchInput, restaurant2)
 
@@ -39,7 +40,7 @@ const handleSearch =()=>{
  },[])
 
   async function getSwiggyRestrruants(){
-   const response  =await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.679466959904303&lng=77.50065922737122&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+   const response  =await fetch(FETCH_RESTAURANTS);
    const resonseData = await response.json()
    console.log('resonseData',resonseData)
    let restaurants = [];
