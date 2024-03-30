@@ -1,8 +1,8 @@
 
 import {useEffect, useState} from 'react'
-import { restaurntList } from "./constants"
 import RestaurantCard from "./RestaurantCard"
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 function filterData (searchInput, restaurant2)
 
@@ -22,6 +22,7 @@ const[searchInput,setSearchInput] =useState('')
 const [restaurant ,setRestaurant]=useState([])
 const [searchedRestraunts,setSearchedrestraunts]=useState([])
 const [toggle,setToggle] =useState('false')
+
 
 const handleToggle=()=>{
   (toggle === 'false') ? setToggle('true') : setToggle('false')
@@ -61,6 +62,8 @@ setRestaurant(restaurants);
 setSearchedrestraunts(searchedRestaurants);
   }
 
+ 
+
   return restaurant?.length === 0 ? <Shimmer/> : (
     <>
     <div className="search-container">
@@ -78,7 +81,8 @@ setSearchedrestraunts(searchedRestaurants);
     <div className="restaurantLIst">
 
      { (searchedRestraunts.length>0) ?  searchedRestraunts.map((restraunt) => {
-          return <RestaurantCard key={restraunt?.data?.id} {...restraunt} />
+          return <Link to ={'/restaurant/'+restraunt?.id}>
+            { console.log('restraunt?.data?.id}',restraunt?.id)}<RestaurantCard {...restraunt} /></Link>
         }) : <h1>No Restruants Matches</h1>
      
      }
