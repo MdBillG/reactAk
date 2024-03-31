@@ -4,6 +4,7 @@ import RestaurantCard from "./RestaurantCard"
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { FETCH_RESTAURANTS } from './constants';
+import useOnline from '../utils/useOnline';
 
 function filterData (searchInput, restaurant2)
 
@@ -24,10 +25,14 @@ const [restaurant ,setRestaurant]=useState([])
 const [searchedRestraunts,setSearchedrestraunts]=useState([])
 const [toggle,setToggle] =useState('false')
 
+const online= useOnline()
+
 
 const handleToggle=()=>{
   (toggle === 'false') ? setToggle('true') : setToggle('false')
 }
+
+
 
 const handleSearch =()=>{
   const  data = filterData(searchInput, restaurant); 
@@ -60,6 +65,11 @@ setRestaurant(restaurants);
  }
 
 setSearchedrestraunts(searchedRestaurants);
+  }
+
+  if(!online)
+  {
+    return <h1>Check you internet Connection</h1>
   }
 
   return restaurant?.length === 0 ? <Shimmer/> : (

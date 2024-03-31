@@ -12,10 +12,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 
-
-
 const AppLayout =()=>{
-
   return(
   <>
   <HeadingComponent/>
