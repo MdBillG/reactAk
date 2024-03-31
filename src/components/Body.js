@@ -62,8 +62,6 @@ setRestaurant(restaurants);
 setSearchedrestraunts(searchedRestaurants);
   }
 
- 
-
   return restaurant?.length === 0 ? <Shimmer/> : (
     <>
     <div className="search-container">
@@ -79,14 +77,11 @@ setSearchedrestraunts(searchedRestaurants);
     
     <button onClick={handleToggle}>{toggle}</button>
     <div className="restaurantLIst">
-
      { (searchedRestraunts.length>0) ?  searchedRestraunts.map((restraunt) => {
           return <Link to ={'/restaurant/'+restraunt?.id}>
          <RestaurantCard {...restraunt} /></Link>
         }) : <h1>No Restruants Matches</h1>
-     
      }
-
       </div></>
   )
 }
