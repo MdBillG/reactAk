@@ -42,7 +42,6 @@ const handleSearch =()=>{
   async function getSwiggyRestrruants(){
    const response  =await fetch(FETCH_RESTAURANTS);
    const resonseData = await response.json()
-   console.log('resonseData',resonseData)
    let restaurants = [];
   for (let i = 0; i <= 12; i++) {
     const cardRestaurants = resonseData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(x => x.info);
@@ -83,7 +82,7 @@ setSearchedrestraunts(searchedRestaurants);
 
      { (searchedRestraunts.length>0) ?  searchedRestraunts.map((restraunt) => {
           return <Link to ={'/restaurant/'+restraunt?.id}>
-            { console.log('restraunt?.data?.id}',restraunt?.id)}<RestaurantCard {...restraunt} /></Link>
+         <RestaurantCard {...restraunt} /></Link>
         }) : <h1>No Restruants Matches</h1>
      
      }
