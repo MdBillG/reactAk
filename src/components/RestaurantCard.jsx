@@ -1,4 +1,5 @@
 import { IMG_CDN_URL } from "./constants"
+import Contact from "./Contact"
 
 const RestaurantCard =({cloudinaryImageId,name,cuisines,costForTwoString})=>{
     return(
@@ -8,11 +9,8 @@ const RestaurantCard =({cloudinaryImageId,name,cuisines,costForTwoString})=>{
         <h1>{name}</h1>
         <h3>{cuisines}</h3>
         <h3>{costForTwoString}</h3>
-      
+        
       </div>
-
-
-
     )
   }
 

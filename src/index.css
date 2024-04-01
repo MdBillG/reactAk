@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -83,9 +85,13 @@ background-size: 290px 100%;
 
 @keyframes shimmer-animation {
   from {
-      background-position: -290px 0; /* Initial position off-screen */
+      background-position: -290px 0; 
   }
   to {
-      background-position: 290px 0; /* Move the background completely across */
+      background-position: 290px 0; 
   }
+}
+
+.lorem{
+  border: 1px solid black;
 }
