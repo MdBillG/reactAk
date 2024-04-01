@@ -15,6 +15,7 @@ return (
         <Link to='/about'> <li>About</li></Link>
         <Link to = '/contact'><li>Contact</li></Link> 
          <li>Cart</li>
+         <Link to='/instamart'><li>InstaMart</li></Link>
         </ul>
       </div> 
     {controlLogin ? ( <button onClick={()=> setControllogin(false)}>Login</button>) 
