@@ -2,9 +2,13 @@
 import {useState} from 'react';
 import { Title } from "./Title";
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import UserContext from '../utils/UserContext';
 
 export const HeadingComponent = () => {
   const[controlLogin,setControllogin] =useState(false);
+
+  const {user} = useContext(UserContext)
 
 return (
     <div className="header">
@@ -16,6 +20,8 @@ return (
         <Link to = '/contact'><li>Contact</li></Link> 
          <li>Cart</li>
          <Link to='/instamart'><li>InstaMart</li></Link>
+       
+       <li>{user?.name }-{user?.age }</li>
         </ul>
       </div> 
     {controlLogin ? ( <button onClick={()=> setControllogin(false)}>Login</button>) 

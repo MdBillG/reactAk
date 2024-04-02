@@ -5,6 +5,9 @@ import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { FETCH_RESTAURANTS } from './constants';
 import useOnline from '../utils/useOnline';
+import { useContext } from 'react';
+import UserContext from '../utils/UserContext';
+
 
 function filterData (searchInput, restaurant2)
 
@@ -19,6 +22,10 @@ const filterData = restaurant2.filter((res) => {
 return filterData
 }
 
+
+
+
+
 export const  Body = ()=>{
 const[searchInput,setSearchInput] =useState('')
 const [restaurant ,setRestaurant]=useState([])
@@ -27,6 +34,7 @@ const [toggle,setToggle] =useState('false')
 
 const online= useOnline()
 
+const {user,setUser} =useContext(UserContext)
 
 const handleToggle=()=>{
   (toggle === 'false') ? setToggle('true') : setToggle('false')
@@ -37,7 +45,6 @@ const handleToggle=()=>{
 const handleSearch =()=>{
   const  data = filterData(searchInput, restaurant); 
    setSearchedrestraunts(data);
-   
 }
 
  useEffect(()=>{
@@ -84,6 +91,17 @@ setSearchedrestraunts(searchedRestaurants);
        onClick={handleSearch}>
         Search</button>{searchInput}
     </div>
+
+    <input value={user?.age}
+     onChange={e=>{setUser({
+      ...user,
+      age:e.target.value
+     })}}/>
+     <input value={user?.name}
+     onChange={e=>{setUser({
+      ...user,
+      name:e.target.value
+     })}}/>
     
     <button onClick={handleToggle}>{toggle}</button>
     <div className="restaurantLIst">
