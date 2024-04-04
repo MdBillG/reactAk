@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Country_Value } from './constants';
+import useCountry from '../utils/useCountry';
 
 const Section = ({ name, description, isVisible, toggleVisibility }) => {
   return (
@@ -20,12 +22,20 @@ const Section = ({ name, description, isVisible, toggleVisibility }) => {
 
 const InstaMart = () => {
   const [visibleSection, setVisibleSection] = useState(null);
+  const [countryName,setCountryname] = useState('')
+
+  const {country,handleChange,countyOptions} = useCountry()
+  console.log('countryName',countryName);
 
   const toggleSection = (sectionName) => {
     setVisibleSection((prevVisibleSection) =>
       prevVisibleSection === sectionName ? null : sectionName
     );
   };
+
+  const handleCountry=(e)=>{
+setCountryname(e.target.value)
+  }
 
   return (
     <>
@@ -46,6 +56,18 @@ const InstaMart = () => {
         isVisible={visibleSection === 'Agneepath'}
         toggleVisibility={() => toggleSection('Agneepath')}
       />
+
+
+      <select value={countryName} onChange={handleCountry}> 
+        <option >Select County Name</option>
+        {Country_Value.map(x=><option key={x?.name} value={x?.name}>{x?.name} </option>)}
+      </select>
+
+
+      <select value={country} onChange={handleChange}>
+      <option value="">select</option>
+      {countyOptions}
+      </select>
       InstaMar has thousands of lines
     </>
   );
