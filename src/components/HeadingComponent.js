@@ -13,7 +13,7 @@ export const HeadingComponent = () => {
   const {user} = useContext(UserContext)
 
   const cartItems =useSelector(store =>store?.cart?.items)
-  const removeItems = useSelector(store => store.cart.items)
+  console.log('cartItems',cartItems);
 
 
 return (

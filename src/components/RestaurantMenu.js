@@ -13,12 +13,10 @@ const RestaurantMenu = () =>{
     const restaurantMenu = useRestaurantMenu(id)
     const dispatch = useDispatch()
 
-    const handleAddItem =() =>{
-      dispatch(addItem('grapes'))
+    const handleAddItem =(restaurantMenu) =>{
+      dispatch(addItem(restaurantMenu))
     }
-    const removeItem=(item) =>{
-    dispatch(removeItem('banana'))
-    }
+    
 
       return (!restaurantMenu) ? <Shimmer/> :  (
         <>
@@ -31,12 +29,10 @@ const RestaurantMenu = () =>{
                     <h2>{restaurantMenu?.costForTwo}</h2>
                 <h2>{restaurantMenu?.locality}</h2>
                 <h2>{restaurantMenu?.city}</h2>
-                <button onClick={()=>{handleAddItem()}}>
+                <button onClick={()=>{handleAddItem(restaurantMenu)}}>
                   Add to Cart
                 </button>
-                  {/* <button onClick={()=>{removeItem()}}>
-                  Remove from Cart
-                </button> */}
+             
               </div>
         </>
           )
